@@ -13,7 +13,7 @@ public class CarController : MonoBehaviour
 
     public InputActionReference Brake;
 
-    public Vector2 InputVector;
+    Vector2 InputVector;
 
     Rigidbody CarBody;
 

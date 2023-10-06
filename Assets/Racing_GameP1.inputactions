@@ -1,5 +1,5 @@
 {
-    "name": "Racing_Game",
+    "name": "Racing_GameP1",
     "maps": [
         {
             "name": "Racing",
@@ -18,6 +18,15 @@
                     "name": "Brake",
                     "type": "Button",
                     "id": "a0de1c04-ff99-40f1-8f4d-2c676d3b2e42",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PowerUpButton",
+                    "type": "Button",
+                    "id": "d71a4591-ee58-432f-abf2-4f14ef9cd770",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -88,6 +97,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Brake",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb9b4e60-7688-462c-a83b-b67ed26b80cf",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PowerUpButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
