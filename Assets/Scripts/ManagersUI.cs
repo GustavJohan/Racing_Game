@@ -8,4 +8,5 @@ public class ManagersUI : ScriptableObject
     public GameObject UIPrefab;
     public GameObject SpawnPrefab;
     public GameObject PositionTracker;
+    public GameObject FirstPlaceTracker;
 }

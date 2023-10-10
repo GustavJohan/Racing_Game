@@ -14,7 +14,7 @@ public class PositionTracker : MonoBehaviour
 
     public GameObject Finish;
 
-    
+    public FirstPlaceTracker FirstPlace;
 
     // Start is called before the first frame update
     void Start()
@@ -41,10 +41,15 @@ public class PositionTracker : MonoBehaviour
             Cars[1].CurrentPosition = Cars[0].Distance > Cars[1].Distance ? 1 : 2;
         }
 
-        if (Cars[0].Finished && Cars[1].Finished)
+
+        if (Cars[0].Finished)
         {
-            Cars[0].Finished = false;
-            Cars[1].Finished = false;
+            FirstPlace.Player1Wins();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (Cars[1].Finished) 
+        { 
+            FirstPlace.Player2Wins();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

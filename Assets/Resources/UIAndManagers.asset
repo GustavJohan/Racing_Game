@@ -15,3 +15,4 @@ MonoBehaviour:
   UIPrefab: {fileID: 4329781762830038821, guid: faf1d626e03024545baf74f8f8d41016, type: 3}
   SpawnPrefab: {fileID: 262408717318730973, guid: 67ef19dc862839946bd2f23f2534335f, type: 3}
   PositionTracker: {fileID: 4449716647335254632, guid: e92c4d6c71e64fc4994ff703af45ac8a, type: 3}
+  FirstPlaceTracker: {fileID: 6372500629644160853, guid: b8765c8f7956a5d44a49638f71af2bd4, type: 3}

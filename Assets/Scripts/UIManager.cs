@@ -52,16 +52,16 @@ public class UIManager : MonoBehaviour
             
             
 
-        CurrentPowerUpReader = new PowerUpPickUp[2];
+        
 
-        StartCoroutine(WaitValuesAreFound());
+        WaitValuesAreFound();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UI[0].text = "Player1: " + PositionTracker.Cars[0].CurrentPosition + " Laps: " + PositionTracker.Cars[0].Laps + "/3";
-        UI[1].text = "Player2: " + PositionTracker.Cars[1].CurrentPosition + " Laps: " + PositionTracker.Cars[1].Laps + "/3";
+        UI[0].text = PositionTracker.Cars[0].gameObject.name + ": " + PositionTracker.Cars[0].CurrentPosition + " Laps: " + PositionTracker.Cars[0].Laps + "/2";
+        UI[1].text = PositionTracker.Cars[1].gameObject.name + ": " + PositionTracker.Cars[1].CurrentPosition + " Laps: " + PositionTracker.Cars[1].Laps + "/2";
 
 
         
@@ -98,17 +98,11 @@ public class UIManager : MonoBehaviour
             UI[0].color = PositionTracker.Cars[0].gameObject.GetComponent<Renderer>().material.color;
             UI[1].color = PositionTracker.Cars[1].gameObject.GetComponent<Renderer>().material.color;
     }
-    IEnumerator WaitValuesAreFound()
+    void WaitValuesAreFound()
     {
-        print("Start Coroutine");
-        while (PositionTracker.Cars[0] == null && PositionTracker.Cars[1] == null)
-        {
-            print("Waiting");
-            yield return null;
-        }
+        CurrentPowerUpReader = new PowerUpPickUp[2];
         CurrentPowerUpReader[0] = PositionTracker.Cars[0].gameObject.GetComponent<PowerUpPickUp>();
         CurrentPowerUpReader[1] = PositionTracker.Cars[1].gameObject.GetComponent<PowerUpPickUp>();
-        print("Stop Coroutine");
         SetColor();
     }
 }

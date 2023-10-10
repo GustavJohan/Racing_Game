@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 262408717318730973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -320.4791, y: -260.56885, z: 77.99895}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -90,8 +90,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -366,9 +366,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 2225263116746218607, guid: 02fb3a110e011ad4586fec0da5365056, type: 3}
   Brake: {fileID: 841023635900586716, guid: 02fb3a110e011ad4586fec0da5365056, type: 3}
-  EngineStrength: 1500
-  MaxturningAngle: 25
-  BrakeForce: 1000
+  EngineStrength: 8000
+  MaxturningAngle: 20
+  BrakeForce: 2000
 --- !u!114 &1564413661289361863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,6 +417,8 @@ MonoBehaviour:
   CheckpointsPassed: 0
   Laps: 0
   CurrentPosition: 0
+  Finished: 0
+  Timer: 0
 --- !u!114 &8351756274738213121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,9 +604,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 2225263116746218607, guid: 49536d5190fe2e14f82a17981c469042, type: 3}
   Brake: {fileID: 841023635900586716, guid: 49536d5190fe2e14f82a17981c469042, type: 3}
-  EngineStrength: 1500
-  MaxturningAngle: 25
-  BrakeForce: 1000
+  EngineStrength: 8000
+  MaxturningAngle: 20
+  BrakeForce: 2000
 --- !u!114 &4331509191985092764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +655,8 @@ MonoBehaviour:
   CheckpointsPassed: 0
   Laps: 0
   CurrentPosition: 0
+  Finished: 0
+  Timer: 0
 --- !u!114 &8135056946742377815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,8 +742,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -809,8 +813,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -880,8 +884,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -951,8 +955,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -1022,8 +1026,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -1093,8 +1097,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
@@ -1269,8 +1273,8 @@ WheelCollider:
     m_AsymptoteValue: 0.5
     m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.5
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 2.51
+    m_ExtremumValue: 4.09
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efdd339a6c38d246b39c5634d576e0e, type: 3}
+  m_Name: 2
+  m_EditorClassIdentifier: 
+  LevelPrefab: {fileID: 0}
+  CheckPointsPrefab: {fileID: 5857651504140218360, guid: 8008bdc322022bf4da75c8b2503e6273, type: 3}
+  FinishPrefab: {fileID: 5690090634456425029, guid: 147b3198928c83e41b47a5a3f9526ebb, type: 3}
