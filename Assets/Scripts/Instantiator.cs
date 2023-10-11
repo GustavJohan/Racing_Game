@@ -35,13 +35,20 @@ public class Instantiator : MonoBehaviour
         GameObject CheckPoints = Instantiate(levelData.CheckPointsPrefab);
         GameObject Goal = Instantiate(levelData.FinishPrefab);
 
-        Instantiate(managers.SpawnPrefab);
+        CarPostitionTracker[] cars = Instantiate(managers.SpawnPrefab).GetComponentsInChildren<CarPostitionTracker>();
         
         // this segment instantiates the position tracker and gives it most of its necessary refrences
         PositionTracker PosTracker = Instantiate(managers.PositionTracker).GetComponent<PositionTracker>();
         PosTracker.CheckPoints = new GameObject[CheckPoints.GetComponentsInChildren<BoxCollider>().Length];
         PosTracker.Finish = Goal.GetComponentInChildren<BoxCollider>().gameObject;
         PosTracker.FirstPlace = FirstPlaceTracker.GetComponent<FirstPlaceTracker>();
+        PosTracker.Cars = cars;
+        
+        foreach (CarPostitionTracker c in cars)
+        {
+            c.Checkpoints = PosTracker;
+        }
+
 
         int i = 0;
 

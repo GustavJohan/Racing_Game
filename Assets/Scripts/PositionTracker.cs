@@ -16,18 +16,6 @@ public class PositionTracker : MonoBehaviour
 
     public FirstPlaceTracker FirstPlace;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //gets refrences to the Cars positiontrackers
-        Cars = FindObjectsOfType<CarPostitionTracker>();
-
-        foreach (CarPostitionTracker p in Cars)
-        {
-            //Gives refrences to the car position trakers allowing them access to the checkpoint array and finishlines allowing them to track their position
-            p.Checkpoints = gameObject.GetComponent<PositionTracker>();
-        }
-    }
 
     // Update is called once per frame
     void Update()

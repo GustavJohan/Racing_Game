@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PowerUp : MonoBehaviour
 {
+    //this script is pretty self explanatory. A switch statement determine what powerup the player is holding. when the powerup button is pressed the corresponding funktion is called.
+    //Using a switch statement makes the system easily expandable, simply increase the max range of the randomisation in Powerup pickup and implement a new coresponding fuction here.
     public InputActionReference PowerUpButton;
 
     public PowerUpPickUp pickUp;
@@ -32,18 +34,14 @@ public class PowerUp : MonoBehaviour
         {
             switch (pickUp.PowerUpID)
             {
+                
                 case 1:
-                    rb.AddForce(transform.forward * Speedboostforce);
+                    SpeedBoost();
                     break;
 
+
                 case 2:
-                    foreach (Rigidbody Playerbodies in AllPlayers)
-                    {
-                        if (Playerbodies != rb)
-                        {
-                            Playerbodies.velocity = Vector3.zero;
-                        }
-                    }
+                    EnemySlow();
                     break;
             }
             
@@ -51,6 +49,22 @@ public class PowerUp : MonoBehaviour
             pickUp.PowerUpID = 0;
 
             
+        }
+    }
+
+    void SpeedBoost()
+    {
+        rb.AddForce(transform.forward * Speedboostforce);
+    }
+
+    void EnemySlow()
+    {
+        foreach (Rigidbody Playerbodies in AllPlayers)
+        {
+            if (Playerbodies != rb)
+            {
+                Playerbodies.velocity = Vector3.zero;
+            }
         }
     }
 }
