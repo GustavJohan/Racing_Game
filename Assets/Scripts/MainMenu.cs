@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
-{
+{ // Very simple script for a main menu
     public void StartButton()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void SettingsMenu()
-    {
-
-    }
 
     public void Quit()
     {

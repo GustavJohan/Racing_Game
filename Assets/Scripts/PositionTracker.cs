@@ -19,10 +19,12 @@ public class PositionTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //gets refrences to the Cars positiontrackers
         Cars = FindObjectsOfType<CarPostitionTracker>();
 
         foreach (CarPostitionTracker p in Cars)
         {
+            //Gives refrences to the car position trakers allowing them access to the checkpoint array and finishlines allowing them to track their position
             p.Checkpoints = gameObject.GetComponent<PositionTracker>();
         }
     }
@@ -30,6 +32,7 @@ public class PositionTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Reads and compares the values of the car position tracker and determining which car is in first place.
         if (Cars[0].CheckpointsPassed != Cars[1].CheckpointsPassed)
         {
         Cars[0].CurrentPosition = Cars[0].CheckpointsPassed > Cars[1].CheckpointsPassed ? 1 : 2;
@@ -41,7 +44,7 @@ public class PositionTracker : MonoBehaviour
             Cars[1].CurrentPosition = Cars[0].Distance > Cars[1].Distance ? 1 : 2;
         }
 
-
+        //Reads if a player finishes first, gives them a point and then loads the next level
         if (Cars[0].Finished)
         {
             FirstPlace.Player1Wins();

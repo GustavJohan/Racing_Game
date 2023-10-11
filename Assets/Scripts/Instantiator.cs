@@ -6,32 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class Instantiator : MonoBehaviour
 {
-    GameObject PlayerCars;
 
     GameObject FirstPlaceTracker;
 
     private void Awake()
     {
+        
+        //This loads a ascriptable object that contains things that vary between levels. in this case the checkpoints and finishline
+        //to easily load the prefab its name is set to the scene index for the level it belongs to
         LevelData levelData = (LevelData)Resources.Load(SceneManager.GetActiveScene().buildIndex.ToString());
-        ManagersUI managers = (ManagersUI)Resources.Load("UIAndManagers");
+        
+        //This loads a scriptable object containing things that are used in every scene. in this case UI, Managers and the players
+        ManagersUI managers = (ManagersUI)Resources.Load("UIAndManagers"); 
+        
 
 
-        GameObject CheckPoints = Instantiate(levelData.CheckPointsPrefab);
-        GameObject Goal = Instantiate(levelData.FinishPrefab);
-
-        PlayerCars = Instantiate(managers.SpawnPrefab);
-
+        
+        //Since the first place tracker persistbetween scenes this segment is used to prevent duplicates of the object and getting a refrence for the First place tracker
         if (FindObjectOfType<FirstPlaceTracker>() == null)
-        {
+        { 
             FirstPlaceTracker = Instantiate(managers.FirstPlaceTracker);
             DontDestroyOnLoad(FirstPlaceTracker);
         } else
         {
             FirstPlaceTracker = FindObjectOfType<FirstPlaceTracker>().gameObject;
         }
+        
+        GameObject CheckPoints = Instantiate(levelData.CheckPointsPrefab);
+        GameObject Goal = Instantiate(levelData.FinishPrefab);
 
+        Instantiate(managers.SpawnPrefab);
         
-        
+        // this segment instantiates the position tracker and gives it most of its necessary refrences
         PositionTracker PosTracker = Instantiate(managers.PositionTracker).GetComponent<PositionTracker>();
         PosTracker.CheckPoints = new GameObject[CheckPoints.GetComponentsInChildren<BoxCollider>().Length];
         PosTracker.Finish = Goal.GetComponentInChildren<BoxCollider>().gameObject;
@@ -46,6 +52,10 @@ public class Instantiator : MonoBehaviour
         }
 
         PosTracker.GetComponent<PositionTracker>().Finish = Goal.GetComponentInChildren<BoxCollider>().gameObject;
+        
+
+
+
         Instantiate(managers.UIPrefab);
     }
 }

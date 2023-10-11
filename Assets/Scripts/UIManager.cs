@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
         foreach (TMP_Text Text in FindObjectsOfType<TMP_Text>())
         {
-            
+            // this segment gets refrences to the UI while avoiding text belonging to the pause menus buttons
             if (Text.gameObject.tag != "PauseMenu")
             {
                 
@@ -42,29 +42,30 @@ public class UIManager : MonoBehaviour
         i = 0;
 
         foreach (Image image in FindObjectsOfType<Image>())
-        {
+        {// this segment gets refrences to the UI while avoiding images belonging to the pause menus buttons
             if (image.gameObject.tag != "PauseMenu")
             {
                 Powerupdisplayer[i] = image;
                 i++;
             }
         }
-            
-            
-
         
-
-        WaitValuesAreFound();
+        CurrentPowerUpReader = new PowerUpPickUp[2];
+        CurrentPowerUpReader[0] = PositionTracker.Cars[0].gameObject.GetComponent<PowerUpPickUp>();
+        CurrentPowerUpReader[1] = PositionTracker.Cars[1].gameObject.GetComponent<PowerUpPickUp>();
+        //Gets refrenses to the powerup pickup in order to read its value and display it on the UI
+        SetColor();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Displays the current players position
         UI[0].text = PositionTracker.Cars[0].gameObject.name + ": " + PositionTracker.Cars[0].CurrentPosition + " Laps: " + PositionTracker.Cars[0].Laps + "/2";
         UI[1].text = PositionTracker.Cars[1].gameObject.name + ": " + PositionTracker.Cars[1].CurrentPosition + " Laps: " + PositionTracker.Cars[1].Laps + "/2";
 
 
-        
+        //Reads the current powerup and displays it. 0 being nothing, 1 being speedboost, 2 being enemy slowdown.
         switch (CurrentPowerUpReader[0].PowerUpID)
         {
             case 0:
@@ -95,14 +96,8 @@ public class UIManager : MonoBehaviour
 
     void SetColor()
     {
+        //Changes the text color in order to clarify which player is which. Reads the color directly from the material allowing color swaps without needing to modify the code
             UI[0].color = PositionTracker.Cars[0].gameObject.GetComponent<Renderer>().material.color;
             UI[1].color = PositionTracker.Cars[1].gameObject.GetComponent<Renderer>().material.color;
-    }
-    void WaitValuesAreFound()
-    {
-        CurrentPowerUpReader = new PowerUpPickUp[2];
-        CurrentPowerUpReader[0] = PositionTracker.Cars[0].gameObject.GetComponent<PowerUpPickUp>();
-        CurrentPowerUpReader[1] = PositionTracker.Cars[1].gameObject.GetComponent<PowerUpPickUp>();
-        SetColor();
     }
 }

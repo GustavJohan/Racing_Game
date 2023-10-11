@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        //getting refrences to the pause menu buttons in order to enable/disable them
         Menu = FindObjectsOfType<Button>();
 
         foreach (Button b in Menu)
